@@ -1,109 +1,115 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Registration Form</title>
-    <style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to bottom right, #3a7bd5, #00d2ff);
+      background-size: cover;
+    }
 
-        body {
-            font-family: 'Times New Roman', Times, serif;
-            background-color: antiquewhite;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0;
-            height: 100vh;
-            background-image: url('https://c4.wallpaperflare.com/wallpaper/888/656/851/windows-11-minimalism-abstract-digital-hd-wallpaper-preview.jpg');
-            background-size: cover;
-        }
+    .form-container {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      width: 100%;
+      max-width: 450px;
+      position: relative;
+    }
 
-        .transparent-box {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border: 3px solid black;
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 30px;
-            border-radius: 10px;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
+    .form-container h1 {
+      text-align: center;
+      color: #3a7bd5;
+      margin-bottom: 20px;
+    }
 
-        .sticker {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 30px;
-            height: 30px;
-            z-index: 10;
-        }
+    .form-container input[type="text"],
+    .form-container input[type="email"],
+    .form-container input[type="password"],
+    .form-container input[type="date"] {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
 
-        input[type="submit"] {
-            background-color: forestgreen;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            text-align: center;
-            justify-content: center;
-            cursor: pointer;
-        }
+    .form-container input[type="radio"] {
+      margin-right: 5px;
+    }
 
-        input[type="email"], input[type="text"], input[type="password"], input[type="date"] {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            box-sizing: border-box;
-        }
+    .gender-options {
+      margin: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+    }
 
-        input[type="radio"] {
-            margin: 0 10px;
-        }
+    .form-container input[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      background-color: #3a7bd5;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
 
-        h1 {
-            text-align: center;
-            color: forestgreen;
-            font-size: 36px;
-            text-shadow: 2px 2px 4px #000000;
-            margin-bottom: 20px;
-        }
+    .form-container input[type="submit"]:hover {
+      background-color: #2e62aa;
+    }
 
-        @media (max-width: 600px) {
-            .transparent-box {
-                width: 90%;
-                padding: 20px;
-            }
+    .sticker {
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      width: 60px;
+      height: 60px;
+    }
 
-            h1 {
-                font-size: 28px;
-            }
-        }
-    </style>
+    @media (max-width: 600px) {
+      .form-container {
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      .form-container h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="transparent-box">
-        <img class="sticker" src="snow.png" alt="Sticker" />
-        <form>
-            <h1>Register</h1>
-            <input type="text" name="username" placeholder="Enter your name" required /><br />
-            <input type="email" name="email" placeholder="Enter your email" required /><br />
-            <input type="email" name="confirm_email" placeholder="Confirm your email" required /><br />
-            <input type="password" name="password" placeholder="Enter your password" maxlength="16" minlength="6" required /><br />
-            <input type="password" name="confirm_password" placeholder="Confirm your password" maxlength="16" minlength="6" required /><br />
-            <input type="date" name="dob" placeholder="Enter your birthdate" required /><br />
-            <div>
-                Male <input type="radio" name="gender" value="male" />
-                Female <input type="radio" name="gender" value="female" />
-                Other <input type="radio" name="gender" value="other" />
-            </div><br />
-            <input type="submit" value="Register" />
-        </form>
-    </div>
+  <div class="form-container">
+    <img class="sticker" src="snow.png" alt="Sticker" />
+    <form>
+      <h1>Register</h1>
+      <input type="text" name="username" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="email" name="confirm_email" placeholder="Confirm Email" required />
+      <input type="password" name="password" placeholder="Password" maxlength="16" minlength="6" required />
+      <input type="password" name="confirm_password" placeholder="Confirm Password" maxlength="16" minlength="6" required />
+      <input type="date" name="dob" required />
+      <div class="gender-options">
+        <label><input type="radio" name="gender" value="male" /> Male</label>
+        <label><input type="radio" name="gender" value="female" /> Female</label>
+        <label><input type="radio" name="gender" value="other" /> Other</label>
+      </div>
+      <input type="submit" value="Register" />
+    </form>
+  </div>
 </body>
 </html>
