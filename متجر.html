@@ -25,10 +25,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1; /* تخلي الكانفس تحت المحتوى */
+            z-index: -1;
             display: block;
-            background: linear-gradient(90deg, #003366 0%, #0055aa 100%);
+            background: white; /* خليتها بيضاء */
         }
+
 
         header {
             background: linear-gradient(90deg, #003366 0%, #0055aa 100%);
@@ -40,11 +41,11 @@
             z-index: 10;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 2rem;
-            letter-spacing: 1px;
-        }
+            header h1 {
+                margin: 0;
+                font-size: 2rem;
+                letter-spacing: 1px;
+            }
 
         nav {
             display: flex;
@@ -62,24 +63,24 @@
             z-index: 10;
         }
 
-        nav a {
-            text-decoration: none;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-            font-size: 1rem;
-            white-space: nowrap;
-        }
+            nav a {
+                text-decoration: none;
+                color: white;
+                padding: 0.5rem 1rem;
+                border-radius: 6px;
+                transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+                font-size: 1rem;
+                white-space: nowrap;
+            }
 
-        nav a:hover {
-            background-color: #0077ff;
-            color: #fff;
-            box-shadow: 0 4px 12px rgba(0, 119, 255, 0.5);
-        }
+                nav a:hover {
+                    background-color: #0077ff;
+                    color: #fff;
+                    box-shadow: 0 4px 12px rgba(0, 119, 255, 0.5);
+                }
 
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1542831371-29b0f74f9713') center/cover no-repeat;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://wallpaperaccess.com/full/4754341.jpg') center/cover no-repeat;
             height: 250px;
             display: flex;
             justify-content: center;
@@ -116,28 +117,28 @@
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .product:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-        }
+            .product:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            }
 
-        .product img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
+            .product img {
+                width: 100%;
+                height: 180px;
+                object-fit: cover;
+                border-radius: 8px;
+            }
 
-        .product h3 {
-            font-size: 1.2rem;
-            margin: 0.5rem 0;
-            color: #003366;
-        }
+            .product h3 {
+                font-size: 1.2rem;
+                margin: 0.5rem 0;
+                color: #003366;
+            }
 
-        .product p {
-            color: #666;
-            font-size: 0.9rem;
-        }
+            .product p {
+                color: #666;
+                font-size: 0.9rem;
+            }
 
         .btn {
             display: inline-block;
@@ -150,9 +151,9 @@
             transition: background 0.3s ease;
         }
 
-        .btn:hover {
-            background-color: #0055aa;
-        }
+            .btn:hover {
+                background-color: #0055aa;
+            }
 
         .section-title {
             text-align: center;
@@ -186,29 +187,29 @@
             z-index: 9999;
         }
 
-        #welcome-popup .popup {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            max-width: 400px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
+            #welcome-popup .popup {
+                background: white;
+                padding: 2rem;
+                border-radius: 10px;
+                text-align: center;
+                max-width: 400px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            }
 
-        #welcome-popup button {
-            margin-top: 1rem;
-            padding: 0.5rem 1.5rem;
-            background: #003366;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
+            #welcome-popup button {
+                margin-top: 1rem;
+                padding: 0.5rem 1.5rem;
+                background: #003366;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background 0.3s ease;
+            }
 
-        #welcome-popup button:hover {
-            background-color: #0055aa;
-        }
+                #welcome-popup button:hover {
+                    background-color: #0055aa;
+                }
 
         /* --------- Media Queries --------- */
 
@@ -224,10 +225,10 @@
                 padding: 0.5rem 0.8rem;
             }
 
-            nav a {
-                font-size: 0.9rem;
-                padding: 0.4rem 0.8rem;
-            }
+                nav a {
+                    font-size: 0.9rem;
+                    padding: 0.4rem 0.8rem;
+                }
 
             .hero {
                 font-size: 1.2rem;
@@ -298,6 +299,13 @@
             <h2>مرحبًا بك في متجري!</h2>
             <p>نحن سعداء بزيارتك. تصفح منتجاتنا الجديدة والمميزة الآن.</p>
             <button onclick="closePopup()">ابدأ التصفح</button>
+
+            <script>
+                function closePopup() {
+                    document.getElementById('welcome-popup').style.display = 'none';
+                }
+            </script>
+
         </div>
     </div>
 
@@ -383,8 +391,10 @@
 
         // مثال رسم خلفية متدرجة مع نص
         function draw() {
-            // مسح الشاشة
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+            // ما فيش رسم إضافي هنا عشان الخلفية بيضاء
+        }
+
 
             // خلفية متدرجة (هذا يتكرر لأنه fixed مع CSS لكن لو حبيت تغير الرسم مستقبلاً)
             const gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
