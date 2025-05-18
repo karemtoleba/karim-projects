@@ -7,261 +7,292 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
     <style>
         body {
-          font-family: 'Cairo', sans-serif;
-          background-color: #fefefe;
-          margin: 0;
-          padding: 0;
-          color: #333;
-          line-height: 1.6;
+            font-family: 'Cairo', sans-serif;
+            background-color: #fefefe;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+            position: relative;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* --------------- Canvas الخلفية -------------- */
+        #myCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* تخلي الكانفس تحت المحتوى */
+            display: block;
+            background: linear-gradient(90deg, #003366 0%, #0055aa 100%);
         }
 
         header {
-          background: linear-gradient(90deg, #003366 0%, #0055aa 100%);
-          color: white;
-          padding: 1.5rem 1rem;
-          text-align: center;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(90deg, #003366 0%, #0055aa 100%);
+            color: white;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 10;
         }
 
         header h1 {
-          margin: 0;
-          font-size: 2rem;
-          letter-spacing: 1px;
+            margin: 0;
+            font-size: 2rem;
+            letter-spacing: 1px;
         }
 
         nav {
-          display: flex;
-          justify-content: center;
-          gap: 1rem;
-          background-color: #004080;
-          padding: 0.8rem 1rem;
-          font-weight: 600;
-          border-radius: 8px;
-          box-shadow: 0 2px 8px rgba(0, 64, 128, 0.3);
-          margin: 1rem auto;
-          max-width: 900px;
-          flex-wrap: wrap;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            background-color: #004080;
+            padding: 0.8rem 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 64, 128, 0.3);
+            margin: 1rem auto;
+            max-width: 900px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 10;
         }
 
         nav a {
-          text-decoration: none;
-          color: white;
-          padding: 0.5rem 1rem;
-          border-radius: 6px;
-          transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-          font-size: 1rem;
-          white-space: nowrap;
+            text-decoration: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+            font-size: 1rem;
+            white-space: nowrap;
         }
 
         nav a:hover {
-          background-color: #0077ff;
-          color: #fff;
-          box-shadow: 0 4px 12px rgba(0, 119, 255, 0.5);
+            background-color: #0077ff;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(0, 119, 255, 0.5);
         }
 
         .hero {
-          background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1542831371-29b0f74f9713') center/cover no-repeat;
-          height: 250px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          color: white;
-          font-size: 1.8rem;
-          font-weight: bold;
-          text-align: center;
-          padding: 1rem;
-          margin: 0 1rem;
-          border-radius: 10px;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1542831371-29b0f74f9713') center/cover no-repeat;
+            height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 1rem;
+            margin: 0 1rem;
+            border-radius: 10px;
+            position: relative;
+            z-index: 10;
         }
 
         .sections {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-          gap: 1.5rem;
-          padding: 2rem 1rem;
-          max-width: 1200px;
-          margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem 1rem;
+            max-width: 1200px;
+            margin: auto;
+            position: relative;
+            z-index: 10;
         }
 
         .product {
-          background: white;
-          padding: 1rem;
-          border: 1px solid #ccd;
-          border-radius: 10px;
-          text-align: center;
-          box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-          transition: transform 0.3s, box-shadow 0.3s;
+            background: white;
+            padding: 1rem;
+            border: 1px solid #ccd;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .product:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
         }
 
         .product img {
-          width: 100%;
-          height: 180px;
-          object-fit: cover;
-          border-radius: 8px;
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
         }
 
         .product h3 {
-          font-size: 1.2rem;
-          margin: 0.5rem 0;
-          color: #003366;
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+            color: #003366;
         }
 
         .product p {
-          color: #666;
-          font-size: 0.9rem;
+            color: #666;
+            font-size: 0.9rem;
         }
 
         .btn {
-          display: inline-block;
-          margin-top: 0.5rem;
-          padding: 0.5rem 1.2rem;
-          background-color: #003366;
-          color: white;
-          border-radius: 5px;
-          text-decoration: none;
-          transition: background 0.3s ease;
+            display: inline-block;
+            margin-top: 0.5rem;
+            padding: 0.5rem 1.2rem;
+            background-color: #003366;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s ease;
         }
 
         .btn:hover {
-          background-color: #0055aa;
+            background-color: #0055aa;
         }
 
         .section-title {
-          text-align: center;
-          font-size: 1.8rem;
-          margin: 2rem 0 1rem;
-          color: #003366;
+            text-align: center;
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+            color: #003366;
+            position: relative;
+            z-index: 10;
         }
 
         footer {
-          background-color: #003366;
-          color: white;
-          padding: 1rem;
-          text-align: center;
+            background-color: #003366;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            position: relative;
+            z-index: 10;
         }
 
         /* الـ Popup */
         #welcome-popup {
-          position: fixed;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          background: rgba(0,0,0,0.6);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          z-index: 9999;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(0,0,0,0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
         }
 
         #welcome-popup .popup {
-          background: white;
-          padding: 2rem;
-          border-radius: 10px;
-          text-align: center;
-          max-width: 400px;
-          box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 400px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
         #welcome-popup button {
-          margin-top: 1rem;
-          padding: 0.5rem 1.5rem;
-          background: #003366;
-          color: white;
-          border: none;
-          border-radius: 5px;
-          cursor: pointer;
-          transition: background 0.3s ease;
+            margin-top: 1rem;
+            padding: 0.5rem 1.5rem;
+            background: #003366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
         }
 
         #welcome-popup button:hover {
-          background-color: #0055aa;
+            background-color: #0055aa;
         }
 
         /* --------- Media Queries --------- */
 
         /* أجهزة موبايل صغيرة */
         @media (max-width: 480px) {
-          header h1 {
-            font-size: 1.5rem;
-            padding: 0 0.5rem;
-          }
+            header h1 {
+                font-size: 1.5rem;
+                padding: 0 0.5rem;
+            }
 
-          nav {
-            gap: 0.5rem;
-            padding: 0.5rem 0.8rem;
-          }
+            nav {
+                gap: 0.5rem;
+                padding: 0.5rem 0.8rem;
+            }
 
-          nav a {
-            font-size: 0.9rem;
-            padding: 0.4rem 0.8rem;
-          }
+            nav a {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+            }
 
-          .hero {
-            font-size: 1.2rem;
-            height: 180px;
-            margin: 0 0.5rem;
-          }
+            .hero {
+                font-size: 1.2rem;
+                height: 180px;
+                margin: 0 0.5rem;
+            }
 
-          .product img {
-            height: 150px;
-          }
+            .product img {
+                height: 150px;
+            }
 
-          .section-title {
-            font-size: 1.5rem;
-            margin: 1.5rem 0 1rem;
-          }
+            .section-title {
+                font-size: 1.5rem;
+                margin: 1.5rem 0 1rem;
+            }
 
-          .product h3 {
-            font-size: 1.1rem;
-          }
+            .product h3 {
+                font-size: 1.1rem;
+            }
 
-          .product p {
-            font-size: 0.85rem;
-          }
+            .product p {
+                font-size: 0.85rem;
+            }
         }
 
         /* أجهزة تابلت متوسطة */
         @media (min-width: 481px) and (max-width: 768px) {
-          header h1 {
-            font-size: 1.8rem;
-          }
+            header h1 {
+                font-size: 1.8rem;
+            }
 
-          nav a {
-            font-size: 1rem;
-            padding: 0.5rem 1rem;
-          }
+            nav a {
+                font-size: 1rem;
+                padding: 0.5rem 1rem;
+            }
 
-          .hero {
-            font-size: 1.5rem;
-            height: 220px;
-            margin: 0 1rem;
-          }
+            .hero {
+                font-size: 1.5rem;
+                height: 220px;
+                margin: 0 1rem;
+            }
 
-          .product img {
-            height: 170px;
-          }
+            .product img {
+                height: 170px;
+            }
 
-          .section-title {
-            font-size: 1.7rem;
-          }
+            .section-title {
+                font-size: 1.7rem;
+            }
 
-          .product h3 {
-            font-size: 1.15rem;
-          }
+            .product h3 {
+                font-size: 1.15rem;
+            }
 
-          .product p {
-            font-size: 0.9rem;
-          }
+            .product p {
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
 <body>
+
+    <!-- Canvas متجاوب كخلفية -->
+    <canvas id="myCanvas"></canvas>
+
     <div id="welcome-popup">
         <div class="popup">
             <h2>مرحبًا بك في متجري!</h2>
@@ -269,11 +300,6 @@
             <button onclick="closePopup()">ابدأ التصفح</button>
         </div>
     </div>
-    <script>
-        function closePopup() {
-            document.getElementById('welcome-popup').style.display = 'none';
-        }
-    </script>
 
     <header>
         <h1>متجري - منصة متعددة البائعين</h1>
@@ -338,5 +364,44 @@
     <footer>
         &copy; 2025 متجري - جميع الحقوق محفوظة.
     </footer>
+
+    <script>
+        // إغلاق النافذة المنبثقة
+        function closePopup() {
+            document.getElementById('welcome-popup').style.display = 'none';
+        }
+
+        // إعداد canvas ليملأ الشاشة دائماً ويتفاعل مع تغيير حجم النافذة
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            draw();
+        }
+
+        // مثال رسم خلفية متدرجة مع نص
+        function draw() {
+            // مسح الشاشة
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // خلفية متدرجة (هذا يتكرر لأنه fixed مع CSS لكن لو حبيت تغير الرسم مستقبلاً)
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
+            gradient.addColorStop(0, '#003366');
+            gradient.addColorStop(1, '#0055aa');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // نص توضيحي (تقدر تحذفه لو مش عايزه)
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+            ctx.font = '80px Cairo, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('متجري', canvas.width / 2, canvas.height / 2);
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+    </script>
 </body>
 </html>
