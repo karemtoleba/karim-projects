@@ -3,10 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <title>Familly Cafe</title>
-
-
     <link rel="stylesheet" href="StyleSheet1.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
+        header {
+            background-color: #6b4f4f;
+            padding: 20px 0;
+            color: white;
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .hero {
+            background: url('cafe-bg.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero-content h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background-color: #d9a15d;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: white;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #6b4f4f;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
@@ -17,8 +89,8 @@
             <nav>
                 <ul>
                     <li><a href="cafe.html">Home</a></li>
-                    <li><a  href="about.html">About </a></li>
-                    <li><a  href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
                     <li><a target="_blank" href="https://wa.me/201065162384">Contact us</a></li>
                 </ul>
             </nav>
@@ -29,7 +101,7 @@
         <div class="hero-content">
             <h2>Welcome to Our Website</h2>
             <p>We provide the best services to meet your needs</p>
-            <a href="menu.html"  class="btn">Menu</a>
+            <a href="menu.html" class="btn">Menu</a>
         </div>
     </section>
 
