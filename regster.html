@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Registration Form</title>
+    <style>
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: antiquewhite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            height: 100vh;
+            background-image: url('https://c4.wallpaperflare.com/wallpaper/888/656/851/windows-11-minimalism-abstract-digital-hd-wallpaper-preview.jpg');
+            background-size: cover;
+        }
+
+        .transparent-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 3px solid black;
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            border-radius: 10px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sticker {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 30px;
+            height: 30px;
+            z-index: 10;
+        }
+
+        input[type="submit"] {
+            background-color: forestgreen;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        input[type="email"], input[type="text"], input[type="password"], input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+
+        input[type="radio"] {
+            margin: 0 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: forestgreen;
+            font-size: 36px;
+            text-shadow: 2px 2px 4px #000000;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .transparent-box {
+                width: 90%;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="transparent-box">
+        <img class="sticker" src="snow.png" alt="Sticker" />
+        <form>
+            <h1>Register</h1>
+            <input type="text" name="username" placeholder="Enter your name" required /><br />
+            <input type="email" name="email" placeholder="Enter your email" required /><br />
+            <input type="email" name="confirm_email" placeholder="Confirm your email" required /><br />
+            <input type="password" name="password" placeholder="Enter your password" maxlength="16" minlength="6" required /><br />
+            <input type="password" name="confirm_password" placeholder="Confirm your password" maxlength="16" minlength="6" required /><br />
+            <input type="date" name="dob" placeholder="Enter your birthdate" required /><br />
+            <div>
+                Male <input type="radio" name="gender" value="male" />
+                Female <input type="radio" name="gender" value="female" />
+                Other <input type="radio" name="gender" value="other" />
+            </div><br />
+            <input type="submit" value="Register" />
+        </form>
+    </div>
+</body>
+</html>
