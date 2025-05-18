@@ -1,20 +1,80 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="StyleSheet1.css">
     <meta charset="UTF-8">
     <title>Café Familly Menu</title>
+    <link rel="stylesheet" href="StyleSheet1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
     <style>
-
         body {
+            font-family: 'Cairo', sans-serif;
             text-align: center;
             font-size: 18px;
+            margin: 0;
+            padding: 0;
+            background-color: #fffdf9;
+        }
+
+        header {
+            background-color: #6b4f4f;
+            color: white;
+            padding: 20px 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1000px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        section {
+            background-color: #f9f9f9;
+            margin: 30px auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 85%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin-top: 30px;
+            font-size: 36px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #4b2e2e;
         }
 
         table {
             margin: 0 auto;
             border-collapse: collapse;
-            width: 80%;
+            width: 90%;
         }
 
         th, td {
@@ -24,18 +84,27 @@
         }
 
         th {
-            background-color: #f2f2f2;
+            background-color: #e8e8e8;
+        }
+
+        footer {
+            background-color: #6b4f4f;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 40px;
         }
     </style>
 </head>
 <body>
+
     <header>
         <div class="container">
             <div class="logo">Familly Café</div>
             <nav>
                 <ul>
                     <li><a href="cafe.html">Home</a></li>
-                    <li><a href="about.html">About </a></li>
+                    <li><a href="about.html">About</a></li>
                     <li><a href="services.html">Services</a></li>
                     <li><a target="_blank" href="https://wa.me/201065162384">Contact us</a></li>
                 </ul>
@@ -46,47 +115,59 @@
     <h1>☕ Café Familly</h1>
     <p>📍 Salah Salem Street | 📞 01065162384</p>
 
-    <h2>🥤 Hot Drinks</h2>
-    <table>
-        <tr><th>Item</th><th>Price</th></tr>
-        <tr><td>Espresso</td><td>35 EGP</td></tr>
-        <tr><td>Americano</td><td>38 EGP</td></tr>
-        <tr><td>Cappuccino</td><td>25 EGP</td></tr>
-        <tr><td>Latte</td><td>25 EGP</td></tr>
-        <tr><td>Mocha</td><td>26 EGP</td></tr>
-        <tr><td>English Tea</td><td>15 EGP</td></tr>
-        <tr><td>Green Tea</td><td>12 EGP</td></tr>
-        <tr><td>Hot Chocolate</td><td>20 EGP</td></tr>
-    </table>
+    <section>
+        <h2>🥤 Hot Drinks</h2>
+        <table>
+            <tr><th>Item</th><th>Price</th></tr>
+            <tr><td>Espresso</td><td>35 EGP</td></tr>
+            <tr><td>Americano</td><td>38 EGP</td></tr>
+            <tr><td>Cappuccino</td><td>25 EGP</td></tr>
+            <tr><td>Latte</td><td>25 EGP</td></tr>
+            <tr><td>Mocha</td><td>26 EGP</td></tr>
+            <tr><td>English Tea</td><td>15 EGP</td></tr>
+            <tr><td>Green Tea</td><td>12 EGP</td></tr>
+            <tr><td>Hot Chocolate</td><td>20 EGP</td></tr>
+        </table>
+    </section>
 
-    <h2>🧊 Cold Drinks</h2>
-    <table>
-        <tr><th>Item</th><th>Price</th></tr>
-        <tr><td>Iced Latte</td><td>35 EGP</td></tr>
-        <tr><td>Iced Cappuccino</td><td>35 EGP</td></tr>
-        <tr><td>Chocolate Frappuccino</td><td>45 EGP</td></tr>
-        <tr><td>Ice Tea (Lemon/Peach)</td><td>35 EGP</td></tr>
-        <tr><td>Fresh Orange Juice</td><td>30 EGP</td></tr>
-        <tr><td>Fresh Strawberry Juice</td><td>40 EGP</td></tr>
-    </table>
+    <section>
+        <h2>🧊 Cold Drinks</h2>
+        <table>
+            <tr><th>Item</th><th>Price</th></tr>
+            <tr><td>Iced Latte</td><td>35 EGP</td></tr>
+            <tr><td>Iced Cappuccino</td><td>35 EGP</td></tr>
+            <tr><td>Chocolate Frappuccino</td><td>45 EGP</td></tr>
+            <tr><td>Ice Tea (Lemon/Peach)</td><td>35 EGP</td></tr>
+            <tr><td>Fresh Orange Juice</td><td>30 EGP</td></tr>
+            <tr><td>Fresh Strawberry Juice</td><td>40 EGP</td></tr>
+        </table>
+    </section>
 
-    <h2>🍰 Desserts</h2>
-    <table>
-        <tr><th>Item</th><th>Price</th></tr>
-        <tr><td>Chocolate Cake</td><td>50 EGP</td></tr>
-        <tr><td>Blueberry Cheesecake</td><td>45 EGP</td></tr>
-        <tr><td>Butter Croissant</td><td>30 EGP</td></tr>
-        <tr><td>Chocolate Chip Cookie</td><td>8 EGP</td></tr>
-    </table>
+    <section>
+        <h2>🍰 Desserts</h2>
+        <table>
+            <tr><th>Item</th><th>Price</th></tr>
+            <tr><td>Chocolate Cake</td><td>50 EGP</td></tr>
+            <tr><td>Blueberry Cheesecake</td><td>45 EGP</td></tr>
+            <tr><td>Butter Croissant</td><td>30 EGP</td></tr>
+            <tr><td>Chocolate Chip Cookie</td><td>8 EGP</td></tr>
+        </table>
+    </section>
 
-    <h2>🥪 Snacks</h2>
-    <table>
-        <tr><th>Item</th><th>Price</th></tr>
-        <tr><td>Grilled Chicken Sandwich</td><td>80 EGP</td></tr>
-        <tr><td>Halloumi Toast</td><td>40 EGP</td></tr>
-        <tr><td>Turkey & Cheese Croissant</td><td>35 EGP</td></tr>
-        <tr><td>Chicken Caesar Salad</td><td>25 EGP</td></tr>
-    </table>
+    <section>
+        <h2>🥪 Snacks</h2>
+        <table>
+            <tr><th>Item</th><th>Price</th></tr>
+            <tr><td>Grilled Chicken Sandwich</td><td>80 EGP</td></tr>
+            <tr><td>Halloumi Toast</td><td>40 EGP</td></tr>
+            <tr><td>Turkey & Cheese Croissant</td><td>35 EGP</td></tr>
+            <tr><td>Chicken Caesar Salad</td><td>25 EGP</td></tr>
+        </table>
+    </section>
+
+    <footer>
+        <p>All rights reserved &copy; 2025</p>
+    </footer>
 
 </body>
 </html>
