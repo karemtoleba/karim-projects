@@ -1,232 +1,240 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ملفي الشخصي | مشاريعي</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
-    <style>
-        body {
-            font-family: 'Cairo', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #121212;
-            color: #eee;
-            direction: rtl;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ملفي الشخصي | مشاريعي</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-        header {
-            background: linear-gradient(135deg, #ff6e7f, #bfe9ff);
-            padding: 4rem 2rem 6rem; 
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(255,110,127,0.5);
-            border-bottom-left-radius: 50px;
-            border-bottom-right-radius: 50px;
-            color: #222;
-            position: relative;
-        }
+    body {
+      font-family: 'Cairo', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #121212;
+      color: #eee;
+      direction: rtl;
+    }
 
-            header h1 {
-                font-size: 3rem;
-                margin-bottom: 0.3rem;
-                font-weight: 700;
-                text-shadow: 1px 1px 3px rgba(255,110,127,0.6);
-            }
+    header {
+      background: linear-gradient(135deg, #ff6e7f, #bfe9ff);
+      padding: 4rem 2rem 6rem;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(255,110,127,0.5);
+      border-bottom-left-radius: 50px;
+      border-bottom-right-radius: 50px;
+      color: #222;
+      position: relative;
+    }
 
-            header p {
-                font-size: 1.5rem;
-                font-weight: 500;
-                opacity: 0.9;
-                letter-spacing: 1.2px;
-            }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.3rem;
+      font-weight: 700;
+      text-shadow: 1px 1px 3px rgba(255,110,127,0.6);
+    }
 
-            header .username {
-                font-size: 1.8rem;
-                font-weight: 700;
-                color: rgba(255,110,127,0.5); 
-                margin: 1rem 0 0 0;
-                text-shadow: 1px 1px 2px rgba(74,193,255,0.7);
-                font-family: 'Cairo', sans-serif;
-                position: absolute;
-                bottom: 20px;
-                left: 50%;
-                transform: translateX(-50%);
-            }
+    header p {
+      font-size: 1.5rem;
+      font-weight: 500;
+      opacity: 0.9;
+      letter-spacing: 1.2px;
+    }
 
-        .projects {
-            max-width: 1200px;
-            margin: 3rem auto 6rem;
-            padding: 0 1rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
-            gap: 2.5rem;
-        }
+    header .username {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: rgba(255,110,127,0.5);
+      margin-top: 1rem;
+      text-shadow: 1px 1px 2px rgba(74,193,255,0.7);
+      font-family: 'Cairo', sans-serif;
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
 
-        .project {
-            background: linear-gradient(145deg, #1f1f1f, #292929);
-            border-radius: 20px;
-            box-shadow: 5px 5px 15px #0c0c0c, -5px -5px 15px #343434;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
+    .projects {
+      max-width: 1200px;
+      margin: 3rem auto 6rem;
+      padding: 0 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
 
-            .project:hover {
-                transform: translateY(-10px) scale(1.03);
-                box-shadow: 10px 10px 25px #0a0a0a, -10px -10px 25px #3a3a3a;
-            }
+    .project {
+      background: linear-gradient(145deg, #1f1f1f, #292929);
+      border-radius: 20px;
+      box-shadow: 5px 5px 15px #0c0c0c, -5px -5px 15px #343434;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
 
-            .project img {
-                width: 100%;
-                height: 180px;
-                object-fit: cover;
-                filter: brightness(0.8);
-                transition: filter 0.3s ease;
-            }
+    .project:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 10px 10px 25px #0a0a0a, -10px -10px 25px #3a3a3a;
+    }
 
-            .project:hover img {
-                filter: brightness(1);
-            }
+    .project img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      filter: brightness(0.8);
+      transition: filter 0.3s ease;
+    }
 
-        .project-content {
-            padding: 1.5rem 2rem 2rem;
-            color: #ddd;
-        }
+    .project:hover img {
+      filter: brightness(1);
+    }
 
-            .project-content h3 {
-                margin-bottom: 0.7rem;
-                color: #ff6e7f;
-                font-weight: 700;
-                font-size: 1.6rem;
-                letter-spacing: 0.5px;
-            }
+    .project-content {
+      padding: 1.5rem 2rem 2rem;
+      color: #ddd;
+    }
 
-            .project-content p {
-                font-size: 1rem;
-                line-height: 1.5;
-                opacity: 0.85;
-            }
+    .project-content h3 {
+      margin-bottom: 0.7rem;
+      color: #ff6e7f;
+      font-weight: 700;
+      font-size: 1.6rem;
+      letter-spacing: 0.5px;
+    }
 
-        .contact {
-            background: #ff6e7f;
-            color: #222;
-            text-align: center;
-            padding: 3.5rem 2rem;
-            border-radius: 30px 30px 0 0;
-            box-shadow: 0 -4px 30px rgba(255,110,127,0.5);
-            margin-top: 3rem;
-        }
+    .project-content p {
+      font-size: 1rem;
+      line-height: 1.5;
+      opacity: 0.85;
+      word-wrap: break-word;
+    }
 
-            .contact h2 {
-                font-size: 2.4rem;
-                margin-bottom: 1rem;
-                font-weight: 700;
-            }
+    .contact {
+      background: #ff6e7f;
+      color: #222;
+      text-align: center;
+      padding: 3.5rem 2rem;
+      border-radius: 30px 30px 0 0;
+      box-shadow: 0 -4px 30px rgba(255,110,127,0.5);
+      margin-top: 3rem;
+    }
 
-            .contact p {
-                font-size: 1.2rem;
-                font-weight: 500;
-                margin-bottom: 1.5rem;
-            }
+    .contact h2 {
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
 
-            .contact button {
-                background: #fff;
-                color: #ff6e7f;
-                border: none;
-                padding: 1rem 2.5rem;
-                font-size: 1.2rem;
-                font-weight: 700;
-                border-radius: 50px;
-                cursor: pointer;
-                box-shadow: 0 6px 12px rgba(255,110,127,0.5);
-                transition: background-color 0.3s ease, color 0.3s ease;
-            }
+    .contact p {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
 
-                .contact button:hover {
-                    background-color: #ff4057;
-                    color: #fff;
-                    box-shadow: 0 8px 20px rgba(255,64,87,0.8);
-                }
+    .contact button {
+      background: #fff;
+      color: #ff6e7f;
+      border: none;
+      padding: 1rem 2.5rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 6px 12px rgba(255,110,127,0.5);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
 
-        footer {
-            background: #1a1a1a;
-            color: #888;
-            text-align: center;
-            padding: 1rem;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            border-top: 1px solid #222;
-        }
+    .contact button:hover {
+      background-color: #ff4057;
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(255,64,87,0.8);
+    }
 
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 2.2rem;
-            }
+    footer {
+      background: #1a1a1a;
+      color: #888;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      border-top: 1px solid #222;
+    }
 
-            header p {
-                font-size: 1.1rem;
-            }
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
 
-            .project-content h3 {
-                font-size: 1.3rem;
-            }
+      header p {
+        font-size: 1.1rem;
+      }
 
-            .contact h2 {
-                font-size: 1.6rem;
-            }
-        }
-    </style>
+      header .username {
+        font-size: 1.2rem;
+        bottom: 10px;
+      }
+
+      .project-content h3 {
+        font-size: 1.3rem;
+      }
+
+      .contact h2 {
+        font-size: 1.6rem;
+      }
+
+      .contact button {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>مرحبًا بك في معرض أعمالي</h1>
-        <p>استعرض بعض المشاريع التي قمت بتطويرها باستخدام تقنيات الويب الحديثة</p>
-        <h2 class="username">Karim Ahmed Sayed</h2>
-    </header>
+  <header>
+    <h1>مرحبًا بك في معرض أعمالي</h1>
+    <p>استعرض بعض المشاريع التي قمت بتطويرها باستخدام تقنيات الويب الحديثة</p>
+    <h2 class="username">Karim Ahmed Sayed</h2>
+  </header>
 
-    <section class="projects">
-        <div class="project">
-            <a href="ادوات طبيه.html" target="_blank" style="text-decoration: none; color: inherit;">
-
-
-                <div class="project-content">
-                    <h3>موقع طبي ذكي</h3>
-                    <p>موقع يقدم حلول ذكية للمراكز الصحية ويعتمد على الذكاء الاصطناعي لتقديم خدمات دقيقة.</p>
-            </a>
-
+  <section class="projects">
+    <div class="project">
+      <a href="ادوات طبيه.html" target="_blank" style="text-decoration: none; color: inherit;">
+        <div class="project-content">
+          <h3>موقع طبي ذكي</h3>
+          <p>موقع يقدم حلول ذكية للمراكز الصحية ويعتمد على الذكاء الاصطناعي لتقديم خدمات دقيقة.</p>
         </div>
+      </a>
+    </div>
+
+    <div class="project">
+      <a href="cafe.html" target="_blank" style="text-decoration: none; color: inherit;">
+        <div class="project-content">
+          <h3>Cafe website</h3>
+          <p>صفحه لكافيه اسمه العائله يحتوي علي المنيو وبعض العناصر الأخرى.</p>
         </div>
+      </a>
+    </div>
 
-        <div class="project">
-            <a href="cafe.html" target="_blank" style="text-decoration: none; color: inherit;">
-                <div class="project-content">
-                    <h3>Cafe website </h3>
-                    <p>صفحه لكافيه اسمه العائله يحتوي علي المنيو وبعض العناصر الاخري</p>
-                </div>
-            </a>
+    <div class="project">
+      <a href="regster.html" target="_blank" style="text-decoration: none; color: inherit;">
+        <div class="project-content">
+          <h3>Registration website</h3>
+          <p>صفحة تسجيل بسيطة وفعالة للمستخدمين.</p>
         </div>
+      </a>
+    </div>
+  </section>
 
-        <div class="project">
-            <a href="regster.html" target="_blank" style="text-decoration: none; color: inherit;">
-                <div class="project-content">
-                    <h3>Regstration website </h3>
-                    <p>صفحه تسجيل </p>
-                </div>
-            </a>
-        </div>
+  <section class="contact">
+    <h2>هل تريد التعاون؟</h2>
+    <p>تواصل معي الآن لمناقشة فكرة مشروعك أو لطلب تصميم موقع مميز.</p>
+    <button onclick="window.location='https://wa.me/201065162384';">تواصل معي</button>
+  </section>
 
-       
-    </section>
-
-    <section class="contact">
-        <h2>هل تريد التعاون؟</h2>
-        <p>تواصل معي الآن لمناقشة فكرة مشروعك أو لطلب تصميم موقع مميز.</p>
-        <button onclick="window.location='https://wa.me/201065162384' ;" >تواصل معي</button>
-
-    </section>
-
-    <footer>
-        <p>&copy; 2025 جميع الحقوق محفوظة - تصميم وتطوير بواسطة karim ahmed sayed</p>
-    </footer>
+  <footer>
+    <p>&copy; 2025 جميع الحقوق محفوظة - تصميم وتطوير بواسطة Karim Ahmed Sayed</p>
+  </footer>
 </body>
 </html>
