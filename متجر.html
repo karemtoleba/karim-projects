@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>متجر متعدد البائعين</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #fefefe;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(90deg, #003366 0%, #0055aa 100%);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+            header h1 {
+                margin: 0;
+                font-size: 2.2rem;
+                letter-spacing: 1px;
+            }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            background-color: #004080;
+            padding: 0.8rem 1.5rem;
+            font-weight: 600;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 64, 128, 0.3);
+            margin: 1rem auto;
+            max-width: 900px;
+        }
+
+            nav a {
+                text-decoration: none;
+                color: white;
+                padding: 0.5rem 1rem;
+                border-radius: 6px;
+                transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+                font-size: 1.1rem;
+            }
+
+                nav a:hover {
+                    background-color: #0077ff;
+                    color: #fff;
+                    box-shadow: 0 4px 12px rgba(0, 119, 255, 0.5);
+                }
+
+        footer {
+            background-color: #003366;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1542831371-29b0f74f9713') center/cover no-repeat;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 2.2rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .product {
+            background: white;
+            padding: 1rem;
+            border: 1px solid #ccd;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+            .product:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            }
+
+            .product img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                border-radius: 8px;
+            }
+
+            .product h3 {
+                font-size: 1.3rem;
+                margin: 0.5rem 0;
+                color: #003366;
+            }
+
+            .product p {
+                color: #666;
+                font-size: 0.95rem;
+            }
+
+        .btn {
+            display: inline-block;
+            margin-top: 0.5rem;
+            padding: 0.5rem 1.2rem;
+            background-color: #003366;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+            .btn:hover {
+                background-color: #0055aa;
+            }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin: 2rem 0 1rem;
+            color: #003366;
+        }
+
+        #welcome-popup {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(0,0,0,0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+            #welcome-popup .popup {
+                background: white;
+                padding: 2rem;
+                border-radius: 10px;
+                text-align: center;
+                max-width: 400px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            }
+
+            #welcome-popup button {
+                margin-top: 1rem;
+                padding: 0.5rem 1.5rem;
+                background: #003366;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background 0.3s ease;
+            }
+
+                #welcome-popup button:hover {
+                    background-color: #0055aa;
+                }
+    </style>
+</head>
+<body>
+    <div id="welcome-popup">
+        <div class="popup">
+            <h2>مرحبًا بك في متجري!</h2>
+            <p>نحن سعداء بزيارتك. تصفح منتجاتنا الجديدة والمميزة الآن.</p>
+            <button onclick="closePopup()">ابدأ التصفح</button>
+        </div>
+    </div>
+    <script>
+        function closePopup() {
+            document.getElementById('welcome-popup').style.display = 'none';
+        }
+    </script>
+
+    <header>
+        <h1>متجري - منصة متعددة البائعين</h1>
+    </header>
+
+    <nav>
+        <a href="#">الرئيسية</a>
+        <a href="#">الأقسام</a>
+        <a href="#">منتجات جديدة</a>
+        <a href="#">منتجات مميزة</a>
+        <a href="#">تسجيل البائع</a>
+    </nav>
+
+    <div class="hero">
+        أهلاً بك في أفضل منصة لبيع وشراء المنتجات من عدة بائعين
+    </div>
+
+    <h2 class="section-title">المنتجات الجديدة</h2>
+    <section class="sections">
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9" alt="منتج 1" />
+            <h3>ساعة يد ذكية</h3>
+            <p>ساعة أنيقة مع تتبع النشاطات.</p>
+            <a href="#" class="btn">شراء الآن</a>
+        </div>
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1580894894513-cd48f7c7c273" alt="منتج 2" />
+            <h3>سماعات بلوتوث</h3>
+            <p>صوت عالي الجودة واتصال سريع.</p>
+            <a href="#" class="btn">شراء الآن</a>
+        </div>
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" alt="منتج 3" />
+            <h3>حقيبة ظهر</h3>
+            <p>مناسبة للسفر والدراسة بتصميم عملي.</p>
+            <a href="#" class="btn">شراء الآن</a>
+        </div>
+    </section>
+
+    <h2 class="section-title">منتجات مميزة</h2>
+    <section class="sections">
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3" alt="منتج 4" />
+            <h3>لابتوب للأعمال</h3>
+            <p>معالج قوي وتصميم أنيق.</p>
+            <a href="#" class="btn">شراء الآن</a>
+        </div>
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" alt="منتج 5" />
+            <h3>كاميرا احترافية</h3>
+            <p>نتائج تصوير مذهلة لهواة التصوير.</p>
+            <a href="#" class="btn">شراء الآن</a>
+        </div>
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1616627987939-c02c40c79c56" alt="منتج 6" />
+            <h3>كرسي ألعاب</h3>
+            <p>راحة كاملة أثناء اللعب لساعات طويلة.</p>
+            <a href="#" class="btn">شراء الآن</a>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2025 متجري - جميع الحقوق محفوظة.
+    </footer>
+</body>
+</html>
