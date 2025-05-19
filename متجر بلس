@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>إلكترونيات بلس</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(to bottom right, #1c1c1e, #2c2c2e);
+            color: #f1f1f1;
+            direction: rtl;
+        }
+
+        header {
+            background: linear-gradient(to right, #2c2c2e, #1c1c1e);
+            padding: 30px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+            header h1 {
+                font-size: 2.2em;
+                color: #ffd700;
+            }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+            nav a, .dropbtn {
+                color: #f1f1f1;
+                margin: 0 14px;
+                text-decoration: none;
+                font-size: 1.2em;
+                position: relative;
+                cursor: pointer;
+                user-select: none;
+            }
+
+                nav a::after {
+                    content: '';
+                    position: absolute;
+                    width: 0%;
+                    height: 2px;
+                    bottom: -4px;
+                    right: 0;
+                    background-color: #ffd700;
+                    transition: 0.3s ease;
+                }
+
+                nav a:hover::after {
+                    width: 100%;
+                    left: 0;
+                }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #2c2c2e;
+            min-width: 180px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            border-radius: 8px;
+            z-index: 1000;
+            flex-direction: column;
+            margin-top: 8px;
+        }
+
+            .dropdown-content a {
+                color: #ffd700;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                font-size: 1.1em;
+                border-bottom: 1px solid #444;
+                transition: background-color 0.3s ease;
+            }
+
+                .dropdown-content a:last-child {
+                    border-bottom: none;
+                }
+
+                .dropdown-content a:hover {
+                    background-color: #444444;
+                }
+
+        .dropdown:hover .dropdown-content {
+            display: flex;
+        }
+
+        .hero {
+            background: linear-gradient(to left, rgba(28, 28, 30, 0.9), rgba(44, 44, 46, 0.9)), url('https://source.unsplash.com/1600x600/?electronics,technology') center/cover no-repeat;
+            padding: 120px 30px;
+            text-align: center;
+            color: #fff;
+        }
+
+            .hero h2 {
+                font-size: 3.5em;
+                margin-bottom: 20px;
+            }
+
+            .hero p {
+                font-size: 1.5em;
+            }
+
+        .products {
+            max-width: 1300px;
+            margin: 80px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            padding: 0 30px;
+        }
+
+        .product {
+            background: linear-gradient(to bottom right, #2c2c2e, #1c1c1e);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+            .product:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+            }
+
+            .product img {
+                width: 100%;
+                height: 240px;
+                object-fit: cover;
+            }
+
+        .product-details {
+            padding: 22px;
+            flex-grow: 1;
+        }
+
+            .product-details h3 {
+                font-size: 1.5em;
+                margin-bottom: 10px;
+                color: #ffd700;
+            }
+
+            .product-details p {
+                font-size: 1.1em;
+                color: #ccc;
+                margin-bottom: 20px;
+            }
+
+            .product-details button {
+                background-color: #ffd700;
+                color: #1c1c1e;
+                border: none;
+                padding: 12px 20px;
+                border-radius: 10px;
+                font-size: 1em;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+                .product-details button:hover {
+                    background-color: #e6c200;
+                }
+
+        .about {
+            background: linear-gradient(to bottom right, #3a3a3c, #2c2c2e);
+            padding: 70px 20px;
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+            .about-content h2 {
+                font-size: 2.5em;
+                color: #ffd700;
+                margin-bottom: 20px;
+            }
+
+            .about-content p {
+                font-size: 1.3em;
+                color: #ddd;
+                line-height: 1.8;
+            }
+
+        footer {
+            background: linear-gradient(to right, #2c2c2e, #1c1c1e);
+            color: #aaa;
+            text-align: center;
+            padding: 30px;
+            font-size: 1em;
+            margin-top: 60px;
+        }
+
+            footer a {
+                color: #ffd700;
+                margin: 0 8px;
+                text-decoration: none;
+            }
+
+        /* تحسينات للشاشات الصغيرة */
+        @media (max-width: 600px) {
+          header {
+            flex-direction: column;
+            padding: 20px;
+            gap: 20px;
+          }
+
+          nav {
+            flex-wrap: wrap;
+            justify-content: center;
+          }
+
+          nav a, .dropbtn {
+            margin: 8px 10px;
+            font-size: 1em;
+          }
+
+          .hero {
+            padding: 80px 15px;
+          }
+
+          .hero h2 {
+            font-size: 2em;
+          }
+
+          .hero p {
+            font-size: 1.1em;
+          }
+
+          .products {
+            grid-template-columns: 1fr; /* عمود واحد على الموبايل */
+            gap: 25px;
+            padding: 0 15px;
+          }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>إلكترونيات بلس</h1>
+        <nav>
+            <a href="#">الرئيسية</a>
+
+            <div class="dropdown">
+                <span class="dropbtn">منتجات</span>
+                <div class="dropdown-content">
+                    <a href="#" data-category="computers">أجهزة الكمبيوتر</a>
+                    <a href="#" data-category="phones">الهواتف الذكية</a>
+                    <a href="#" data-category="tv">التلفزيونات</a>
+                    <a href="#" data-category="accessories">الإكسسوارات</a>
+                    <a href="#" data-category="gaming">الألعاب</a>
+                </div>
+            </div>
+
+            <a href="#">عروض اليوم</a>
+            <a href="#">الدعم الفني</a>
+        </nav>
+    </header>
+    <section class="hero">
+        <h2>تسوّق بأناقة وذكاء</h2>
+        <p>أحدث الأجهزة والتقنيات بين يديك بأفضل الأسعار</p>
+    </section>
+    <section class="products" id="products">
+        <!-- المنتجات هتتغير هنا -->
+    </section>
+    <section class="about">
+        <div class="about-content">
+            <h2>من نحن</h2>
+            <p>نحن متجر إلكترونيات متخصص في تقديم أحدث الأجهزة والتقنيات لعملائنا في جميع أنحاء الوطن العربي. نسعى دائمًا لتوفير منتجات عالية الجودة بأسعار تنافسية وخدمة عملاء متميزة.</p>
+        </div>
+    </section>
+    <footer>
+        &copy; 2025 إلكترونيات بلس - جميع الحقوق محفوظة.
+        <div style="margin-top: 10px; font-size: 0.9em;">
+            تابعنا على:
+            <a href="#">فيسبوك</a>
+            |
+            <a href="#">تويتر</a>
+            |
+            <a href="#">إنستغرام</a>
+        </div>
+    </footer>
+
+    <script>
+        // بيانات المنتجات منظمة حسب الأقسام
+        const productsData = {
+            computers: [
+                { name: 'MacBook Pro 2024', price: '25,000 جنيه', img: 'https://source.unsplash.com/featured/?macbook' },
+                { name: 'Dell XPS 15', price: '20,000 جنيه', img: 'https://source.unsplash.com/featured/?laptop' }
+            ],
+            phones: [
+                { name: 'iPhone 15 Pro Max', price: '45,000 جنيه', img: 'https://source.unsplash.com/featured/?iphone' },
+                { name: 'Samsung Galaxy S24', price: '30,000 جنيه', img: 'https://source.unsplash.com/featured/?samsung-phone' }
+            ],
+            tv: [
+                { name: 'LG OLED 65"', price: '32,000 جنيه', img: 'https://source.unsplash.com/featured/?oled-tv' },
+                { name: 'Samsung QLED 55"', price: '28,000 جنيه', img: 'https://source.unsplash.com/featured/?qled-tv' }
+            ],
+            accessories: [
+                { name: 'سماعة HyperX Cloud II', price: '2,200 جنيه', img: 'https://source.unsplash.com/featured/?gaming-headset' },
+                { name: 'ماوس Logitech MX', price: '800 جنيه', img: 'https://source.unsplash.com/featured/?mouse' }
+            ],
+            gaming: [
+                { name: 'PlayStation 5', price: '15,000 جنيه', img: 'https://source.unsplash.com/featured/?playstation' },
+                { name: 'Xbox Series X', price: '14,000 جنيه', img: 'https://source.unsplash.com/featured/?xbox' }
+            ]
+        };
+
+        const productsContainer = document.getElementById('products');
+
+        // وظيفة عرض المنتجات على حسب القسم
+        function showProducts(category) {
+            const products = productsData[category] || [];
+            productsContainer.innerHTML = '';
+
+            if (products.length === 0) {
+                productsContainer.innerHTML = '<p style="color:#ccc; font-size:1.5em; text-align:center;">لا توجد منتجات في هذا القسم.</p>';
+                return;
+            }
+
+            products.forEach(product => {
+                const productHTML = `
+              <div class="product">
+                <img src="${product.img}" alt="${product.name}" />
+                <div class="product-details">
+                  <h3>${product.name}</h3>
+                  <p>${product.price}</p>
+                  <button>أضف إلى السلة</button>
+                </div>
+              </div>
+            `;
+                productsContainer.insertAdjacentHTML('beforeend', productHTML);
+            });
+        }
+
+        // عرض منتجات جميع الأقسام أول مرة
+        function showAllProducts() {
+            productsContainer.innerHTML = '';
+            Object.keys(productsData).forEach(category => {
+                productsData[category].forEach(product => {
+                    const productHTML = `
+                <div class="product">
+                  <img src="${product.img}" alt="${product.name}" />
+                  <div class="product-details">
+                    <h3>${product.name}</h3>
+                    <p>${product.price}</p>
+                    <button>أضف إلى السلة</button>
+                  </div>
+                </div>
+              `;
+                    productsContainer.insertAdjacentHTML('beforeend', productHTML);
+                });
+            });
+        }
+
+        // نعرض كل المنتجات في البداية
+        showAllProducts();
+
+        // إضافة مستمع أحداث على روابط القائمة
+        const categoryLinks = document.querySelectorAll('.dropdown-content a');
+        categoryLinks.forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const category = link.getAttribute('data-category');
+                showProducts(category);
+            });
+        });
+    </script>
+</body>
+</html>
